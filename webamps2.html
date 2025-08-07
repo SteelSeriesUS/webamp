@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Webamp Custom Skin</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background: black;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #app {
+        height: 100%;
+        width: 100%;
+      }
+      canvas {
+        border: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import Webamp from "https://unpkg.com/webamp@^2";
+
+      const webamp = new Webamp({
+        initialSkin: {
+          url: "https://files.catbox.moe/lvfqvk.wsz",
+        },
+        initialTracks: [
+          {
+            metaData: { title: "Sample Track" },
+            url: "https://archive.org/download/testmp3testfile/mpthreetest.mp3",
+          },
+        ],
+        enableDoubleSizeMode: false,
+        availableSkins: [],
+      });
+
+      webamp.renderWhenReady(document.getElementById("app"));
+    </script>
+  </body>
+</html>
